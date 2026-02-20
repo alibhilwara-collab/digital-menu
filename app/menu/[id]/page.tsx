@@ -106,7 +106,7 @@ export default function PublicMenuPage({ params }: { params: Promise<{ id: strin
   const totalItems = cart.reduce((sum, c) => sum + c.qty, 0)
   const totalPrice = cart.reduce((sum, c) => sum + c.price * c.qty, 0)
 
-  function sendToWhatsApp() {
+  async function sendToWhatsApp() {
     if (!menu?.whatsapp_number || cart.length === 0) return
     const orderTypeLabel = orderType === "dine-in" ? "Dine-In" : orderType === "takeaway" ? "Takeaway" : "Delivery"
     let message = `*New Order - ${menu.name}*\n`
